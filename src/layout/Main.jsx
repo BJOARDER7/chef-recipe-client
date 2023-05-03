@@ -1,20 +1,30 @@
-import React from 'react';
-import Footer from '../pages/Shared/Footer';
-import Navbar from '../pages/Shared/Navbar';
-import Header from '../pages/Shared/Header';
-
+import React from "react";
+import Footer from "../pages/Shared/Footer";
+import RightNav from "../pages/Shared/RightNav";
+import { Col, Container, Row } from "react-bootstrap";
+import NavigationBar from "../pages/Shared/NavigationBar";
+import LeftNav from "../pages/Shared/LeftNav";
+import Header from "../pages/Shared/Header";
 
 const Main = () => {
   return (
     <div>
       <Header></Header>
-      {/* <Navbar></Navbar> */}
-      
-      {/* <div class="grid grid-cols-3 gap-4">
-        <div>01</div>
-        <img src="" alt="" />
-        <div>03</div>
-      </div> */}
+      {/* <NavigationBar></NavigationBar> */}
+      <Container>
+        <Row>
+          <Col lg={8}>
+            <LeftNav></LeftNav>
+          </Col>
+          {/* <Col lg={6}>
+            <Outlet></Outlet>
+          </Col> */}
+          <Col lg={4}>
+            <RightNav></RightNav>
+          </Col>
+        </Row>
+      </Container>
+
       <Footer></Footer>
     </div>
   );
