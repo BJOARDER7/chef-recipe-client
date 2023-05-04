@@ -2,79 +2,29 @@ import React from "react";
 import "./Header.css";
 import logo from "../../assets/logo.jpg";
 import user from "../../assets/user.jpg";
-import banner1 from "../../assets/istockphoto-1.jpg";
-import banner2 from "../../assets/istockphoto-2.jpg";
-import banner3 from "../../assets/istockphoto-3.jpg";
-import { Button, Carousel, Container, Nav, Navbar } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <Container>
-      <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
-        <Container>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="d-flex justify-content-between">
-              <div className="d-flex">
-                <div className="d-flex align-items-center">
-                  <img className="logo-img" src={logo} alt="" />
-                  <h2 className="">FoodCafe</h2>
-                </div>
-              </div>
-              <div className="d-flex align-items-center">
-                <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link href="#about">About</Nav.Link>
-                <Nav.Link href="#career">Career</Nav.Link>
-              </div>
-              <div className="d-flex align-items-center">
-                <img className="user-logo" src={user} alt="" />
-                <Nav.Link eventKey={2} href="#login">
-                  <Button variant="secondary">Login</Button>
-                </Nav.Link>
-              </div>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+    <div className="container d-md-flex justify-content-md-between align-items-center bg-info">
+      <div className="d-flex align-items-center py-2">
+        <img className="logo-img" src={logo} alt="" />
+        <h2 className="text-danger">FoodCafe</h2>
+      </div>
 
-      <Carousel>
-        <Carousel.Item>
-          <img className="d-block w-100" src={banner1} alt="First slide" />
-          <Carousel.Caption>
-            <h3>SUPER HOT PAKAGES</h3>
-            <ol>
-              <li>100+ Foods Items</li>
-              <li>26+ Drinks</li>
-              <li>32+ FastFood</li>
-            </ol>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img className="d-block w-100" src={banner2} alt="Second slide" />
-
-          <Carousel.Caption>
-            <h3>SUPER HOT PAKAGES</h3>
-            <ol>
-              <li>100+ Foods Items</li>
-              <li>26+ Drinks</li>
-              <li>32+ FastFood</li>
-            </ol>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img className="d-block w-100" src={banner3} alt="Third slide" />
-
-          <Carousel.Caption>
-            <h3>SUPER HOT PAKAGES</h3>
-            <ol>
-              <li>100+ Foods Items</li>
-              <li>26+ Drinks</li>
-              <li>32+ FastFood</li>
-            </ol>
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
-    </Container>
+      <div className="d-flex gap-3 me-5 nav-menu">
+        <Link to="/">Home</Link>
+        <Link to="/chefs">Chefs</Link>
+        <Link to="/foods">Foods</Link>
+        <Link to="/blog">Blog</Link>
+      </div>
+      <div className="flex-grow-1">
+        <img className="user-logo me-2" src={user} alt="" />
+        <Link to="/login">
+          <button className="rounded">Login</button>
+        </Link>
+      </div>
+    </div>
   );
 };
 

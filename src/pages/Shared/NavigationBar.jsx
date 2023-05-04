@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import './NavigationBar.css';
-import { Link } from 'react-router-dom';
+import banner1 from "../../assets/istockphoto-1.jpg";
+import banner2 from "../../assets/istockphoto-2.jpg";
+import banner3 from "../../assets/istockphoto-3.jpg";
+import { Carousel } from 'react-bootstrap';
 
 const NavigationBar = () => {
   // const { user, logOut } = useContext(AuthContext);
@@ -13,53 +15,43 @@ const NavigationBar = () => {
   }
 
   return (
-      <Container>
-          <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
-              <Container>
-                  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                  <Navbar.Collapse id="responsive-navbar-nav">
-                      <Nav className="mx-auto">
-                          <Link to="/category/0">Home</Link>
-                          <Nav.Link href="#pricing">About</Nav.Link>
-                          <Nav.Link href="#pricing">Career</Nav.Link>
-                      </Nav>
-                      {/* <Nav>
-                          {
-                              user && <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
-                          }
+    <Carousel>
+    <Carousel.Item>
+      <img className="d-block w-100" src={banner1} alt="First slide" />
+      <Carousel.Caption>
+        <h3>SUPER HOT PAKAGES</h3>
+        <ol>
+          <li>100+ Foods Items</li>
+          <li>26+ Drinks</li>
+          <li>32+ FastFood</li>
+        </ol>
+      </Carousel.Caption>
+    </Carousel.Item>
+    <Carousel.Item>
+      <img className="d-block w-100" src={banner2} alt="Second slide" />
 
-                          {user ?
-                              <Button onClick={handleLogOut} variant="secondary">Logout</Button> :
-                              <Link to="/login">
-                                  <Button variant="secondary">Login</Button>
-                              </Link>
-                          }
-                      </Nav> */}
-                  </Navbar.Collapse>
-              </Container>
-          </Navbar>
-      </Container>
-  );
-};
-    //       <div className='flex items-center pt-4'>
-    //       <img className='rounded-full h-12 mr-2' src={logo} alt="" />
-    //         <button className='bg-red-800 rounded px-4 py-2 text-white'>Login</button>
-    //       </div>
-    //       </div>
-    //       <div className='flex flex-col justify-center items-center text-white'>
-    //         <h2 className='text-3xl font-extrabold'>SUPER HOT PAKAGES</h2>
-            
-    //         <ol className='text-xl font-bold py-4'>
-    //           <li>100+ Foods Items</li>
-    //           <li>26+ Drinks</li>
-    //           <li>32+ FastFood</li>
-    //         </ol>
-    //         <button className='bg-red-800 rounded px-4 py-2 text-white'>ORDER NOW</button>
-    //       </div>
-         
-    //     </nav>
-        
-    //   );
-    // }
-    
+      <Carousel.Caption>
+        <h3>SUPER HOT PAKAGES</h3>
+        <ol>
+          <li>100+ Foods Items</li>
+          <li>26+ Drinks</li>
+          <li>32+ FastFood</li>
+        </ol>
+      </Carousel.Caption>
+    </Carousel.Item>
+    <Carousel.Item>
+      <img className="d-block w-100" src={banner3} alt="Third slide" />
+
+      <Carousel.Caption>
+        <h3>SUPER HOT PAKAGES</h3>
+        <ol>
+          <li>100+ Foods Items</li>
+          <li>26+ Drinks</li>
+          <li>32+ FastFood</li>
+        </ol>
+      </Carousel.Caption>
+    </Carousel.Item>
+  </Carousel>
+  )
+  }   
 export default NavigationBar;
