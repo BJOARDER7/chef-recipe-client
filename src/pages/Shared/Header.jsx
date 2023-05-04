@@ -5,7 +5,6 @@ import user from "../../assets/user.jpg";
 import banner1 from "../../assets/istockphoto-1.jpg";
 import banner2 from "../../assets/istockphoto-2.jpg";
 import banner3 from "../../assets/istockphoto-3.jpg";
-import { Link } from "react-router-dom";
 import { Button, Carousel, Container, Nav, Navbar } from "react-bootstrap";
 
 const Header = () => {

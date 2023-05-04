@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import './/Main.css';
 import Footer from "../pages/Shared/Footer";
 import RightNav from "../pages/Shared/RightNav";
 import { Card, CardGroup, Col, Container, Row } from "react-bootstrap";
@@ -34,12 +35,12 @@ const Main = () => {
           </Col>
         </Row>
         <Row>
-          <div>
+          <div className="chef-img">
             {chefs?.map((chef) => (
               <CardGroup key={chef.id}>
                 <Card>
                   
-                  <Card.Img variant="top" src={chef.picture} />
+                  <Card.Img style={{ height: '200px', objectFit: 'cover' }} variant="top" src={chef.picture} />
 
                   <Card.Body>
                     <Card.Title className="text-center text-danger">
