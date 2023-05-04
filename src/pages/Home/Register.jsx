@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const Register = () => {
+  
+  const [error, setError] = useState('');
+
   const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -10,7 +13,7 @@ const Register = () => {
     const password = form.password.value;
     const confirm = form.confirm.value;
 
-    if (password !== confirmPassword) {
+    if (password !== confirm) {
       setError("Password doesn't match");
       return;
     }
@@ -31,6 +34,7 @@ const Register = () => {
       .then((result) => {
         const loggedUser = result.user;
         navigate(from, { replace: true });
+      
       })
       .catch((error) => {
         console.log(error);
@@ -82,8 +86,12 @@ const Register = () => {
           <Form.Text className="text-secondary">
             Have an Account? <Link to="/login">Login</Link>
           </Form.Text>
-          <Form.Text className="text-success"></Form.Text>
-          <Form.Text className="text-danger"></Form.Text>
+          <Form.Text className="text-success">
+            
+          </Form.Text>
+          <Form.Text className="text-danger">
+            {error}
+          </Form.Text>
         </Form>
       </Container>
     </div>
