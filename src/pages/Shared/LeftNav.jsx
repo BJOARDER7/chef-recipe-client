@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Card, CardGroup } from "react-bootstrap";
+import './LeftNav.css';
 import { Link } from "react-router-dom";
 
 const LeftNav = () => {
@@ -13,16 +15,40 @@ const LeftNav = () => {
 
   return (
     <div>
-      <h4>All Chef</h4>
-            <div className='ps-4'>
-                {
-                    chefs.map(chef => <p
-                        key={chef.id}
-                    >
-                        <Link to={`/chef/${chef.id}`} className='text-black text-decoration-none'>{chef.name}</Link>
-                    </p>)
-                }
-            </div>
+      <h2 className="text-center text-bold">HOT FOOD ITEMS</h2>
+      <div className="card-container">
+      
+      {chefs?.map((chef) => 
+        <CardGroup key={chef?.id}>
+        
+        
+          {chef.recipes?.slice(0, 1).map((recipe) => 
+            <Card key={recipe.id}>
+                 
+              <Card.Img variant="top" src={recipe?.picture} />
+      
+        
+        <Card.Body>
+          <Card.Title className="text-center text-danger">{recipe?.name}</Card.Title>
+          <Card.Text>
+            {chef.short_bio}
+          </Card.Text>
+        </Card.Body>
+        <Card.Footer className="mx-auto">
+          <Link to={`/chefs/${chef?.id}`}>
+              <button className="bg-danger rounded">ORDER NOW</button>
+            </Link>
+        </Card.Footer>
+        
+        
+      </Card>
+      
+          )}
+  
+    </CardGroup>
+      )}
+      </div>
+
     </div>
   );
 };
