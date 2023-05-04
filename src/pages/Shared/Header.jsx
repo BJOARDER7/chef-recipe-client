@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Header.css";
 import logo from "../../assets/logo.jpg";
-import user from "../../assets/user.jpg";
+import userLogo from "../../assets/user.jpg";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Header = () => {
+
+  const {user} = useContext(AuthContext);
+
   return (
     <div className="container d-md-flex justify-content-md-between align-items-center bg-info">
       <div className="d-flex align-items-center py-2">
@@ -19,7 +23,10 @@ const Header = () => {
         <Link to="/blog">Blog</Link>
       </div>
       <div className="flex-grow-1">
-        <img className="user-logo me-2" src={user} alt="" />
+        {user ?  
+        <img className="user-logo me-2" src={userLogo} alt="" />
+        : <button>Welcome</button>
+        }
         <Link to="/login">
           <button className="rounded">Login</button>
         </Link>
