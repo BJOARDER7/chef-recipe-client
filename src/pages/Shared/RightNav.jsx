@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { FaGoogle, FaGithub } from "react-icons/fa";
+import Register from "../Home/Register";
 
 const RightNav = () => {
   return (
@@ -12,13 +13,14 @@ const RightNav = () => {
       <Button variant="outline-secondary">
         <FaGithub></FaGithub> Login with Github
       </Button>
-      <form className="mt-5" >
+      <Register></Register>
+      {/* <form onSubmit={handleRegister} className="mt-5" >
         <label className="fw-bold fs-3 mb-2" htmlFor="">Registration:</label>
         <input className="mb-2" type="text" name="name" id="name" placeholder="Name"/>
         <input type="email" name="email" id="email" placeholder="Email"/>
         <input className="my-2" type="password" name="password" id="password" placeholder="Password"/>
         <input className="bg-primary" type="submit" value="Register" />
-      </form>
+      </form> */}
       
     </div>
   );

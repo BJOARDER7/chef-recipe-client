@@ -15,14 +15,14 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    signIn(email, password)
-      .then((result) => {
-        const loggedUser = result.user;
-        navigate(from, { replace: true });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // signIn(email, password)
+    //   .then((result) => {
+    //     const loggedUser = result.user;
+    //     navigate(from, { replace: true });
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   };
 
   return (

@@ -38,7 +38,7 @@ const LeftNav = () => {
           </Card.Text>
         </Card.Body>
         <Card.Footer className="mx-auto">
-          <Link to={`/chefs/${chef?.id}`}>
+          <Link key={chef.id} to={`/chefs/${chef?.id}`}>
               <button className="bg-danger rounded">ORDER NOW</button>
             </Link>
         </Card.Footer>

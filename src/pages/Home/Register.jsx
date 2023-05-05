@@ -1,17 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Toast from 'react-bootstrap/Toast';
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Register = () => {
-  
+  const {user, createUser, } = useContext(AuthContext);
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
   const handleRegister = (event) => {
     event.preventDefault();
+    setSuccess('');
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
     const confirm = form.confirm.value;
+    console.log(email,password,confirm)
 
     if (password !== confirm) {
       setError("Password doesn't match");
@@ -29,22 +34,26 @@ const Register = () => {
       setError("Password must have on spacial character");
       return;
     }
-
-    signIn(email, password)
-      .then((result) => {
-        const loggedUser = result.user;
-        navigate(from, { replace: true });
+ 
+    createUser(email, password)
+    .then(result => {
+      const loginUser = result.user;
+      console.log(loginUser)
+      setError('');
+      form.reset();
+      setSuccess('SUCCESSFULLY REGISTER')
       
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    })
+    .catch(error => {
+      console.log(error.message)
+      setError(error.message)
+    })
   };
 
   return (
     <div>
-      <Container className="w-25 mx-auto my-2">
-        <h3>Please Register</h3>
+      <Container className="w-75 mx-auto my-4">
+        <h3>Registration</h3>
         <Form onSubmit={handleRegister}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <Form.Label>UserName</Form.Label>
@@ -87,7 +96,7 @@ const Register = () => {
             Have an Account? <Link to="/login">Login</Link>
           </Form.Text>
           <Form.Text className="text-success">
-            
+            {success}
           </Form.Text>
           <Form.Text className="text-danger">
             {error}
