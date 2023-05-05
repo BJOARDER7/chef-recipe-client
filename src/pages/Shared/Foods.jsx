@@ -1,9 +1,10 @@
 import React from 'react';
+import LeftNav from './LeftNav';
 
 const Foods = () => {
   return (
     <div>
-      <h2>foods</h2>
+      <LeftNav></LeftNav>
     </div>
   );
 };

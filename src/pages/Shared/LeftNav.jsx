@@ -15,7 +15,10 @@ const LeftNav = () => {
 
   return (
     <div>
-      <h2 className="text-center text-bold">HOT FOOD ITEMS</h2>
+      <h2 className='text-center fs-10 fw-15 text-danger'>Discorver</h2>
+      <h2 className='text-center text-bold'>OUR MENU</h2>
+      <hr style={{border:"2px solid red"}}/>
+      <h2 className="text-center fs-4 fw-4">HOT FOOD ITEMS</h2>
       <div className="card-container">
       
       {chefs?.map((chef) => 

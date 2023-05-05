@@ -16,6 +16,9 @@ const Chefs = () => {
 
   return (
     <Row className='mb-4'>
+      <h2 className='text-center fs-10 fw-15 text-danger'>Chefs</h2>
+      <h2 className='text-center fs-5 fw-5'>MEET OUR EXPERTS</h2>
+      <p className='text-center'>While mirth large of on front. Ye he greater related adapted proceed entered an. Through it examine express promise no. Past add size game cold girl off how old</p>
           <div className="chef-img">
             {chefs?.map((chef) => (
               <CardGroup key={chef.id}>
