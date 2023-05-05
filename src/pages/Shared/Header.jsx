@@ -30,7 +30,7 @@ const Header = () => {
       </div>
       <div className="d-flex pe-2">
         {user ?  <>
-        <img className="" src={user.email} alt="" />
+        <img className="user-logo" src={userLogo} alt="" />
         <button onClick={handleLogout} className="rounded btn-danger btn btn-xs">Signout</button>
         </>
         : <>
