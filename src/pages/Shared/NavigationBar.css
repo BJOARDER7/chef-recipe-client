@@ -4,3 +4,6 @@
   background-size: cover;
   height: 100vh;
 }
+.container ol li {
+  list-style: none;
+}

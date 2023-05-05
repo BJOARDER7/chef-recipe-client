@@ -6,16 +6,10 @@ import banner3 from "../../assets/istockphoto-3.jpg";
 import { Carousel } from 'react-bootstrap';
 
 const NavigationBar = () => {
-  // const { user, logOut } = useContext(AuthContext);
-
-  const handleLogOut = () => {
-      logOut()
-          .then()
-          .catch(error => console.log(error));
-  }
+  
 
   return (
-    <Carousel>
+    <Carousel className='mb-4'>
     <Carousel.Item>
       <img className="d-block w-100" src={banner1} alt="First slide" />
       <Carousel.Caption>

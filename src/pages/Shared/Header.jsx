@@ -10,25 +10,25 @@ const Header = () => {
   const {user} = useContext(AuthContext);
 
   return (
-    <div className="container d-md-flex justify-content-md-between align-items-center bg-info">
-      <div className="d-flex align-items-center py-2">
+    <div className="d-md-flex justify-content-md-between align-items-center bg-info mb-4">
+      <div className="d-flex align-items-center p-2">
         <img className="logo-img" src={logo} alt="" />
         <h2 className="text-danger">FoodCafe</h2>
       </div>
 
-      <div className="d-flex gap-3 me-5 nav-menu">
-        <Link to="/">Home</Link>
-        <Link to="/chefs">Chefs</Link>
-        <Link to="/foods">Foods</Link>
-        <Link to="/blog">Blog</Link>
+      <div className="d-flex gap-3 me-5">
+        <Link className="link-menu" to="/">Home</Link>
+        <Link className="link-menu" to="/chefs">Chefs</Link>
+        <Link className="link-menu" to="/foods">Foods</Link>
+        <Link className="link-menu" to="/blog">Blog</Link>
       </div>
-      <div className="flex-grow-1">
+      <div className="d-flex pe-2">
         {user ?  
         <img className="user-logo me-2" src={userLogo} alt="" />
-        : <button>Welcome</button>
+        : <button className="rounded">Profile</button>
         }
         <Link to="/login">
-          <button className="rounded">Login</button>
+          <button className="rounded ms-2">Login</button>
         </Link>
       </div>
     </div>
