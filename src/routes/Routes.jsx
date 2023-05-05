@@ -6,12 +6,15 @@ import Login from "../pages/Home/Login";
 import Register from "../pages/Home/Register";
 import Chefs from "../pages/Shared/Chefs";
 import Foods from "../pages/Shared/Foods";
+import ErrorPage from "../pages/Home/ErrorPage";
+import NotFound from "../pages/Home/NotFound";
 
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
@@ -36,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path: "*",
+        element: <NotFound></NotFound>
       }
     ]
   }

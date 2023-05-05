@@ -10,7 +10,7 @@ const Header = () => {
   const {user} = useContext(AuthContext);
 
   return (
-    <div className="d-md-flex justify-content-md-between align-items-center bg-info mb-4">
+    <div className="d-md-flex justify-content-md-between align-items-center bg-info">
       <div className="d-flex align-items-center p-2">
         <img className="logo-img" src={logo} alt="" />
         <h2 className="text-danger">FoodCafe</h2>

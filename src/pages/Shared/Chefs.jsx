@@ -8,14 +8,14 @@ const Chefs = () => {
   const [chefs, setChefs] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/chefs")
+    fetch("https://chef-recipe-hunter-server-side-bjoarder7.vercel.app/chefs")
       .then((res) => res.json())
       .then((data) => setChefs(data))
       .catch((error) => console.error(error));
   }, []);
 
   return (
-    <Row className='my-4'>
+    <Row className='mb-4'>
           <div className="chef-img">
             {chefs?.map((chef) => (
               <CardGroup key={chef.id}>

@@ -2,9 +2,11 @@ import React from 'react';
 
 const Blog = () => {
   return (
-    <div>
-      <h2>Blog</h2>
-    </div>
+    
+      <ol>
+        <li>Q. Tell us the differences between uncontrolled and controlled components.</li>
+        
+    </ol>
   );
 };
 
