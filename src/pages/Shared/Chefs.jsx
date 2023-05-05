@@ -47,7 +47,7 @@ const Chefs = () => {
                     </Card.Text>
                   </Card.Body>
                   <Card.Footer className="mx-auto">
-                    <Link key={chef.id} to={`/chefs/${chef?.id}`}>
+                    <Link to={`/chefs/${chef?.id}`}>
                       <button className="bg-danger rounded">View Recipes</button>
                     </Link>
                   </Card.Footer>

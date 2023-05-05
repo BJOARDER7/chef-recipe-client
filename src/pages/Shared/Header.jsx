@@ -7,7 +7,13 @@ import { AuthContext } from "../../provider/AuthProvider";
 
 const Header = () => {
 
-  const {user} = useContext(AuthContext);
+  const {user, logOut} = useContext(AuthContext);
+
+  const handleLogout =() => {
+    logOut()
+    .then()
+    .catch(error=>console.log(error))
+  }
 
   return (
     <div className="d-md-flex justify-content-md-between align-items-center bg-info">
@@ -23,13 +29,16 @@ const Header = () => {
         <Link className="link-menu" to="/blog">Blog</Link>
       </div>
       <div className="d-flex pe-2">
-        {user ?  
-        <img className="user-logo me-2" src={userLogo} alt="" />
-        : <button className="rounded">Profile</button>
-        }
+        {user ?  <>
+        <img className="" src={user.email} alt="" />
+        <button onClick={handleLogout} className="rounded btn-danger btn btn-xs">Signout</button>
+        </>
+        : <>
         <Link to="/login">
           <button className="rounded ms-2">Login</button>
         </Link>
+        </>
+      }
       </div>
     </div>
   );

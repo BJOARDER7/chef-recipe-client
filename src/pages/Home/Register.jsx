@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Toast from 'react-bootstrap/Toast';
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Register = () => {
@@ -41,7 +40,7 @@ const Register = () => {
       console.log(loginUser)
       setError('');
       form.reset();
-      setSuccess('SUCCESSFULLY REGISTER')
+      setSuccess('Successfully Registered')
       
     })
     .catch(error => {

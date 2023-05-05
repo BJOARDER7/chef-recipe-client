@@ -1,28 +1,50 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
-  // const { signIn } = useContext(AuthContext);
-  const navigate = useNavigate();
-  const location = useLocation();
+  const { user, signIn } = useContext(AuthContext);
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
-  // const from = location.state?.from?.pathname || '/chef/0';
-
-  const handleLogin = (event) => {
+    const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
+    console.log(email,password)
 
-    // signIn(email, password)
-    //   .then((result) => {
-    //     const loggedUser = result.user;
-    //     navigate(from, { replace: true });
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+    setError('');
+    setSuccess('');
+    
+    if (password < 8) {
+      setError("password will be minimum 8 character");
+    } else if (!/(?=.*[A-Z])/.test(password)) {
+      setError("Password have must be one uppercase");
+      return;
+    } else if (!/(?=.*\d)/.test(password)) {
+      setError("Password must have on digit");
+      return;
+    } else if (!/(?=.*[^\da-zA-Z])/.test(password)) {
+      setError("Password must have on spacial character");
+      return;
+    }
+
+
+    signIn(email, password)
+    .then(result => {
+      const loginUser = result.user;
+      console.log(loginUser)
+      setSuccess('User Login Successfully')
+      setError('');
+      
+    })
+    .catch(error => {
+      console.log(error.message)
+      setError(error.message)
+    })
+    
   };
 
   return (
@@ -56,8 +78,8 @@ const Login = () => {
         <Form.Text className="text-secondary">
           Don't Have an Account? <Link to="/register">Register</Link>
         </Form.Text>
-        <Form.Text className="text-success"></Form.Text>
-        <Form.Text className="text-danger"></Form.Text>
+        <Form.Text className="text-success">{success}</Form.Text>
+        <Form.Text className="text-danger">{error}</Form.Text>
       </Form>
     </Container>
   );
